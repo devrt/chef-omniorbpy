@@ -2,4 +2,4 @@ site :opscode
 
 metadata
 
-cookbook 'omniorb', path: "/Users/yosuke/cookbooks/omniorb"
+cookbook 'omniorb', git: 'https://github.com/devrt/chef-omniorb.git'
