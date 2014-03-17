@@ -4,6 +4,8 @@ omniORBpy Cookbook
 This cookbook will install omniORBpy a robust high performance CORBA
 ORB for Python.
 
+[![Build Status](http://ci.devrt.tk/job/chef-omniorbpy/badge/icon)](http://ci.devrt.tk/job/chef-omniorbpy/)
+
 Requirements
 ------------
 
