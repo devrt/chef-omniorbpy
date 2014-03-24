@@ -17,22 +17,22 @@
 # limitations under the License.
 #
 
-include_recipe "build-essential"
-include_recipe "python"
-include_recipe "omniorb"
+include_recipe 'build-essential'
+include_recipe 'python'
+include_recipe 'omniorb'
 
-install_path = "/usr/local/lib/python2.7/dist-packages/omniORB/CORBA.py"
+install_path = '/usr/local/lib/python2.7/dist-packages/omniORB/CORBA.py'
 
-remote_file "#{Chef::Config[:file_cache_path]}/omniORBpy-#{node["omniorbpy"]["version"]}.tar.bz2" do
-  source "http://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-#{node["omniorbpy"]["version"]}/omniORBpy-#{node["omniorbpy"]["version"]}.tar.bz2"
+remote_file "#{Chef::Config[:file_cache_path]}/omniORBpy-#{node['omniorbpy']['version']}.tar.bz2" do
+  source "http://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-#{node['omniorbpy']['version']}/omniORBpy-#{node['omniorbpy']['version']}.tar.bz2"
   not_if { ::File.exists?(install_path) }
 end
 
-bash "compile_omniorbpy" do
-  cwd "#{Chef::Config['file_cache_path']}"
+bash 'compile_omniorbpy' do
+  cwd Chef::Config['file_cache_path']
   code <<-EOH
-      tar xvfi omniORBpy-#{node["omniorbpy"]["version"]}.tar.bz2
-      cd omniORBpy-#{node["omniorbpy"]["version"]}
+      tar xvfi omniORBpy-#{node['omniorbpy']['version']}.tar.bz2
+      cd omniORBpy-#{node['omniorbpy']['version']}
       ./configure
       make clean && make && make install
   EOH

@@ -1,1 +1,1 @@
-default["omniorbpy"]["version"] = "3.7"
+default['omniorbpy']['version'] = '3.7'
